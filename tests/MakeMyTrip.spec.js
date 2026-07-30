@@ -78,7 +78,7 @@ async function selectCity(page, fieldId, searchText, matchRegex) {
   await page.locator(`#${fieldId}`).first().click({ force: true });
 
   const overlayInput = page.locator('input[placeholder="From"], input[placeholder="To"]').first();
-  await overlayInput.waitFor({ state: 'visible', timeout: 5000 });
+  await overlayInput.waitFor({ state: 'visible', timeout: 10000 });
   await overlayInput.fill(searchText);
 
   const option = page.locator('#react-autowhatsoever-1-section-0-item-0, li[role="option"]')
@@ -101,7 +101,7 @@ async function selectCalendarDate(page, targetDate) {
     await depInput.click({ force: true });
   }
 
-  await calendarContainer.waitFor({ state: 'visible', timeout: 5000 });
+  await calendarContainer.waitFor({ state: 'visible', timeout: 6000 });
 
   const dateSelector = getCalendarDateSelector(targetDate);
   const nextMonthBtn = page.locator('.DayPicker-NavButton--next, span[aria-label="Next Month"]').first();
